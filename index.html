@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login Page Collection - DISHA COMPUTER</title>
+<!-- Bootstrap (CDN) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0f1724; --card:#0b1220; --accent:#00b4d8; --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.03);
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+body{background:linear-gradient(180deg,#071427 0%, #071a2b 100%); color:#e6eef8; margin:0; padding:40px 20px;}
+.container{max-width:1100px; margin:auto;}
+.header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.logo{
+  width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#00b4d8,#7b2ff7);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+.title h1{margin:0;font-size:20px}
+.title p{margin:0;opacity:0.8;font-size:13px}
+
+/* Navigation pills for quick jump */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pills a{background:var(--glass);padding:8px 12px;border-radius:999px;color:#bfe8ff;text-decoration:none;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
+.section{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:22px;border-radius:12px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(2,6,23,0.6);}
+
+/* Common form styles */
+.login-card{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+@media(max-width:900px){.login-card{grid-template-columns:1fr}}
+.form-box{padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--glass),var(--glass-2));box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+.form-row{margin-bottom:12px}
+.input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;outline:none}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#7b2ff7);border:none;box-shadow:0 6px 18px rgba(11,28,45,0.6)}
+.small-muted{font-size:12px;opacity:0.7}
+
+/* Specific fancy designs */
+
+/* 1 - Minimal glass with floating labels */
+.form-1 .floating{position:relative}
+.form-1 .floating label{position:absolute;left:12px;top:10px;transition:all .18s ease;pointer-events:none;color:#bcdcf0}
+.form-1 .floating input:focus + label,
+.form-1 .floating input:not(:placeholder-shown) + label{top:-8px;font-size:11px;color:var(--accent);background:transparent;padding:0 6px}
+
+/* 2 - Bold gradient side panel */
+.form-2 .side{
+  background:linear-gradient(180deg,#7b2ff7,#00b4d8);padding:28px;border-radius:10px;color:white;transform:translateZ(0);
+  box-shadow: 0 20px 60px rgba(123,47,247,0.18);
+}
+.form-2 .side h3{margin-top:0}
+
+/* 3 - Floating card with animated 3D tilt */
+.tilt-card{perspective:900px}
+.tilt-inner{transition:transform .15s ease;transform-style:preserve-3d;padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));}
+
+/* 4 - Neon glass */
+.form-4{border:1px solid rgba(0,180,216,0.1);box-shadow:0 8px 40px rgba(0,180,216,0.06)}
+.form-4 .input{border:1px solid rgba(0,180,216,0.2)}
+
+/* 5 - Card with icons */
+.icon-field{display:flex;gap:10px;align-items:center}
+.icon-field .fa{width:36px;height:36px;background:rgba(255,255,255,0.02);border-radius:8px;display:flex;align-items:center;justify-content:center;opacity:0.9}
+
+/* 6 - Split background with diagonal */
+.split-bg{background:linear-gradient(135deg, rgba(123,47,247,0.18) 0%, rgba(0,180,216,0.12) 100%);padding:22px;border-radius:12px}
+
+/* 7 - Rounded pill form */
+.pill-form .input{border-radius:999px;padding:12px 18px}
+.pill-form .btn{border-radius:999px;padding:10px 22px}
+
+/* 8 - Simple center card with subtle floating */
+.center-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px}
+
+/* 9 - Dark corporate */
+.corporate{background:linear-gradient(180deg,#0b1220,#071227);padding:18px;border-radius:10px}
+
+/* 10 - Animated gradient border */
+.gradient-border{position:relative;overflow:visible;border-radius:12px;padding:1px;background:linear-gradient(90deg,#00b4d8,#7b2ff7)}
+.gradient-border .inner{border-radius:10px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+
+/* small helpers */
+.center{display:flex;align-items:center;justify-content:center}
+.space-between{display:flex;align-items:center;justify-content:space-between}
+label{font-size:13px}
+a.link{color:var(--accent);text-decoration:none}
+
+/* footer */
+.footer{margin-top:14px;font-size:13px;opacity:0.8}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="logo">DISHA</div>
+    <div class="title">
+      <h1>LOGIN PAGE COLLECTION</h1>
+      <p class="small-muted">10 Unique Login Forms • HTML • CSS • JS • Bootstrap</p>
+    </div>
+  </div>
+
+  <div class="pills" id="navs">
+    <!-- anchors -->
+    <a href="#form1">Login Form 1</a>
+    <a href="#form2">Login Form 2</a>
+    <a href="#form3">Login Form 3</a>
+    <a href="#form4">Login Form 4</a>
+    <a href="#form5">Login Form 5</a>
+    <a href="#form6">Login Form 6</a>
+    <a href="#form7">Login Form 7</a>
+    <a href="#form8">Login Form 8</a>
+    <a href="#form9">Login Form 9</a>
+    <a href="#form10">Login Form 10</a>
+  </div>
+
+  <!-- Sections for 10 forms -->
+  <!-- Form 1 -->
+  <section id="form1" class="section">
+    <h4>Login Form 1 — Minimal Glass (Floating labels)</h4>
+    <div class="login-card">
+      <div class="form-box form-1">
+        <form onsubmit="demoSubmit(event,1)">
+          <div class="form-row floating">
+            <input class="input" id="u1" placeholder=" " required>
+            <label for="u1">Username or Email</label>
+          </div>
+          <div class="form-row floating">
+            <input class="input" id="p1" placeholder=" " type="password" required>
+            <label for="p1">Password</label>
+          </div>
+          <div class="form-row space-between">
+            <div><input type="checkbox" id="r1"> <label for="r1" class="small-muted"> Remember me</label></div>
+            <a class="link" href="#">Forgot?</a>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100">Sign in</button>
+          </div>
+        </form>
+      </div>
+      <div class="center">
+        <div style="max-width:260px;text-align:center;">
+          <h5 style="margin-bottom:6px">Welcome back!</h5>
+          <p class="small-muted">Sign in to access course materials, projects, and admin tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form 2 -->
+  <section id="form2" class="section">
+    <h4>Login Form 2 — Bold Gradient Side Panel</h4>
+    <div class="login-card">
+      <div class="side form-2">
+        <h3>DISHA</h3>
+        <p style="opacity:0.9">Learn • Code • Create</p>
+        <div style="height:12px"></div>
+        <div class="small-muted">New here? <a class="link" href="#">Create account</a></div>
+      </div>
+      <div class="form-box">
+        <form onsubmit="demoSubmit(event,2)">
+          <div class="form-row">
+            <input class="input" placeholder="Email or Mobile" required>
+          </div>
+          <div class="form-row">
+            <input class="input" placeholder="Password" type="password" required>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100">Login</button>
+          </div>
+          <div class="form-row center small-muted">or sign in with</div>
+          <div class="form-row center" style="gap:8px">
+            <button class="btn btn-outline-light"><i class="fab fa-google"></i> Google</button>
+            <button class="btn btn-outline-light"><i class="fab fa-github"></i> GitHub</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form 3 -->
+  <section id="form3" class="section">
+    <h4>Login Form 3 — 3D Tilt Card</h4>
+    <div class="tilt-card">
+      <div class="tilt-inner center-card" id="tilt3">
+        <div style="width:100%;max-width:420px">
+          <h5 style="margin-bottom:12px">Sign in to DISHA</h5>
+          <form onsubmit="demoSubmit(event,3)">
+            <div class="form-row">
+              <input class="input" placeholder="Username" required>
+            </div>
+            <div class="form-row">
+              <input class="input" placeholder="Password" type="password" required>
+            </div>
+            <div class="form-row">
+              <button class="btn btn-primary w-100">Sign In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form 4 -->
+  <section id="form4" class="section">
+    <h4>Login Form 4 — Neon Glass</h4>
+    <div class="login-card">
+      <div class="form-box form-4">
+        <form onsubmit="demoSubmit(event,4)">
+          <div class="form-row icon-field">
+            <i class="fa fa-user fa-2x" style="opacity:.9"></i>
+            <input class="input" placeholder="Username or email" required>
+          </div>
+          <div class="form-row icon-field">
+            <i class="fa fa-lock fa-2x"></i>
+            <input class="input" placeholder="Password" type="password" required>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100">Login</button>
+          </div>
+        </form>
+      </div>
+      <div class="center">
+        <div class="small-muted">Neon accent, suitable for creative portfolios & design studios.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form 5 -->
+  <section id="form5" class="section">
+    <h4>Login Form 5 — Icon fields & social</h4>
+    <div class="login-card">
+      <div class="form-box">
+        <form onsubmit="demoSubmit(event,5)">
+          <div class="form-row">
+            <div class="icon-field">
+              <div class="fa fa-envelope"></div>
+              <input class="input" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="icon-field">
+              <div class="fa fa-lock"></div>
+              <input class="input" placeholder="Password" type="password" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100">Sign in</button>
+          </div>
+        </form>
+      </div>
+      <div class="center">
+        <div>
+          <p class="small-muted">Sign in with social</p>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-outline-light"><i class="fab fa-facebook-f"></i></button>
+            <button class="btn btn-outline-light"><i class="fab fa-google"></i></button>
+            <button class="btn btn-outline-light"><i class="fab fa-twitter"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form 6 -->
+  <section id="form6" class="section">
+    <h4>Login Form 6 — Split Background</h4>
+    <div class="split-bg login-card">
+      <div>
+        <h5>Welcome</h5>
+        <p class="small-muted">Access student dashboard & course materials.</p>
+      </div>
+      <div class="form-box">
+        <form onsubmit="demoSubmit(event,6)">
+          <div class="form-row">
+            <input class="input" placeholder="Student ID / Email" required>
+          </div>
+          <div class="form-row">
+            <input class="input" placeholder="Password" type="password" required>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form 7 -->
+  <section id="form7" class="section">
+    <h4>Login Form 7 — Rounded Pill Style</h4>
+    <div class="login-card">
+      <div class="form-box pill-form">
+        <form onsubmit="demoSubmit(event,7)">
+          <div class="form-row">
+            <input class="input" placeholder="Email or Phone" required>
+          </div>
+          <div class="form-row">
+            <input class="input" placeholder="Password" type="password" required>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100 btn-lg">Sign in</button>
+          </div>
+        </form>
+      </div>
+      <div class="center small-muted">Modern rounded fields for friendly UX.</div>
+    </div>
+  </section>
+
+  <!-- Form 8 -->
+  <section id="form8" class="section">
+    <h4>Login Form 8 — Center Card (Subtle floating)</h4>
+    <div class="center-card center-card center-card" style="background:transparent">
+      <div class="center-card center-card center" style="max-width:420px">
+        <div class="center-card form-box center-card center-card center">
+          <h5>Student Login</h5>
+          <form onsubmit="demoSubmit(event,8)">
+            <div class="form-row">
+              <input class="input" placeholder="Registration Number" required>
+            </div>
+            <div class="form-row">
+              <input class="input" placeholder="Password" type="password" required>
+            </div>
+            <div class="form-row">
+              <button class="btn btn-primary w-100">Enter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form 9 -->
+  <section id="form9" class="section">
+    <h4>Login Form 9 — Dark Corporate</h4>
+    <div class="login-card">
+      <div class="form-box corporate">
+        <form onsubmit="demoSubmit(event,9)">
+          <div class="form-row">
+            <input class="input" placeholder="Corporate ID" required>
+          </div>
+          <div class="form-row">
+            <input class="input" placeholder="Password" type="password" required>
+          </div>
+          <div class="form-row space-between">
+            <div class="small-muted">Need help? <a class="link" href="#">Contact</a></div>
+            <button class="btn btn-outline-light">Support</button>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100">Login</button>
+          </div>
+        </form>
+      </div>
+      <div class="center small-muted">Suitable for admin portals and staff logins.</div>
+    </div>
+  </section>
+
+  <!-- Form 10 -->
+  <section id="form10" class="section">
+    <h4>Login Form 10 — Animated Gradient Border</h4>
+    <div class="gradient-border">
+      <div class="inner">
+        <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <h5 style="margin:0">Sign in</h5>
+          <div class="small-muted">DISHA COMPUTER</div>
+        </div>
+        <form onsubmit="demoSubmit(event,10)">
+          <div class="form-row">
+            <input class="input" placeholder="Username or Email" required>
+          </div>
+          <div class="form-row">
+            <input class="input" placeholder="Password" type="password" required>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary w-100">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer small-muted center">Made with ❤️ by Disha Computer Institute, Jaysingpur — demo collection of login pages</div>
+
+</div>
+
+<script>
+// small helper for demo submit
+function demoSubmit(e, n){
+  e.preventDefault();
+  alert('Demo submit from Login Form ' + n + ' — this is a template. Integrate with backend as needed.');
+}
+
+// Tilt effect for form 3
+const tiltEl = document.getElementById('tilt3');
+if(tiltEl){
+  tiltEl.addEventListener('mousemove', (ev)=>{
+    const r = tiltEl.getBoundingClientRect();
+    const x = (ev.clientX - r.left) - r.width/2;
+    const y = (ev.clientY - r.top) - r.height/2;
+    const rx = (-y / r.height) * 12;
+    const ry = (x / r.width) * 12;
+    tiltEl.querySelector('.tilt-inner').style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
+  });
+  tiltEl.addEventListener('mouseleave', ()=> tiltEl.querySelector('.tilt-inner').style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)');
+}
+
+// Animated gradient border (subtle)
+const gb = document.querySelectorAll('.gradient-border');
+gb.forEach(el=>{
+  el.style.background = 'linear-gradient(90deg,#00b4d8,#7b2ff7,#ff7ab6)';
+  el.style.backgroundSize = '300% 300%';
+  let t=0;
+  setInterval(()=>{ t+=1; el.style.backgroundPosition = (t%300) + '% 50%'; },80);
+});
+
+// Smooth scroll for anchors
+document.querySelectorAll('.pills a').forEach(a=>{
+  a.addEventListener('click', (ev)=>{
+    ev.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+
+</body>
+</html>

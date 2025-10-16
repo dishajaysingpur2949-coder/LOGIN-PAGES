@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login Form 10 — DISHA</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--glass: rgba(255,255,255,0.06);--accent:#00b4d8;font-family:'Inter',system-ui;}
+body{background:linear-gradient(180deg,#071427 0%, #071a2b 100%);color:#e6eef8;padding:32px}
+.container{max-width:720px;margin:auto}
+.logo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00b4d8,#7b2ff7);display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+.gradient-border{position:relative;overflow:visible;border-radius:12px;padding:1px}
+.gradient-border .inner{border-radius:10px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+.input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#7b2ff7);border:none}
+.small-muted{font-size:12px;opacity:.8}
+</style>
+</head>
+<body>
+<div class="container">
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+    <div class="logo">DISHA</div>
+    <div>
+      <h3 style="margin:0">Login Form 10</h3>
+      <div class="small-muted">Animated Gradient Border</div>
+    </div>
+  </div>
+
+  <div class="gradient-border" id="gb">
+    <div class="inner">
+      <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <h5 style="margin:0">Sign in</h5>
+        <div class="small-muted">DISHA COMPUTER</div>
+      </div>
+      <form onsubmit="demoSubmit(event,10)">
+        <div style="margin-bottom:12px"><input class="input" placeholder="Username or Email" required></div>
+        <div style="margin-bottom:12px"><input class="input" placeholder="Password" type="password" required></div>
+        <div><button class="btn btn-primary w-100">Login</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div style="margin-top:12px"><a href="index.html" class="small-muted">← Back to collection</a></div>
+</div>
+
+<script>
+function demoSubmit(e,n){e.preventDefault(); alert('Demo submit from Login Form ' + n);}
+// Animated gradient border (subtle)
+const el = document.getElementById('gb');
+if(el){
+  el.style.background = 'linear-gradient(90deg,#00b4d8,#7b2ff7,#ff7ab6)';
+  el.style.backgroundSize = '300% 300%';
+  let t=0;
+  setInterval(()=>{ t+=1; el.style.backgroundPosition = (t%300) + '% 50%'; },80);
+}
+</script>
+</body>
+</html>

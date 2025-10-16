@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login Form 5 — DISHA</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--glass: rgba(255,255,255,0.06);--accent:#00b4d8;font-family:'Inter',system-ui;}
+body{background:linear-gradient(180deg,#071427 0%, #071a2b 100%);color:#e6eef8;padding:32px}
+.container{max-width:720px;margin:auto}
+.logo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00b4d8,#7b2ff7);display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+.form-box{padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.03));}
+.input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+.icon-field{display:flex;gap:10px;align-items:center}
+.icon-field .fa{width:36px;height:36px;background:rgba(255,255,255,0.02);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#7b2ff7);border:none}
+.small-muted{font-size:12px;opacity:.8}
+</style>
+</head>
+<body>
+<div class="container">
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+    <div class="logo">DISHA</div>
+    <div>
+      <h3 style="margin:0">Login Form 5</h3>
+      <div class="small-muted">Icon fields & social</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center">
+    <div class="form-box">
+      <form onsubmit="demoSubmit(event,5)">
+        <div style="margin-bottom:12px">
+          <div class="icon-field"><div class="fa fa-envelope"></div><input class="input" placeholder="Email" required></div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div class="icon-field"><div class="fa fa-lock"></div><input class="input" placeholder="Password" type="password" required></div>
+        </div>
+        <div><button class="btn btn-primary w-100">Sign in</button></div>
+      </form>
+      <div style="margin-top:8px"><a href="index.html" class="small-muted">← Back to collection</a></div>
+    </div>
+
+    <div class="center" style="text-align:center">
+      <p class="small-muted">Sign in with social</p>
+      <div style="display:flex;gap:8px;justify-content:center">
+        <button class="btn btn-outline-light"><i class="fab fa-facebook-f"></i></button>
+        <button class="btn btn-outline-light"><i class="fab fa-google"></i></button>
+        <button class="btn btn-outline-light"><i class="fab fa-twitter"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function demoSubmit(e,n){e.preventDefault(); alert('Demo submit from Login Form ' + n);}
+</script>
+</body>
+</html>
