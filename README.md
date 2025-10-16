@@ -13,6 +13,14 @@
 
 ---
 
+<p align="center">
+  <a href="https://dishajaysingpur2949-coder.github.io/LOGIN-PAGES/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐 LIVE%20DEMO-CLICK%20HERE-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo">
+  </a>
+</p>
+
+---
+
 ## 💻 About This Project
 
 Welcome to the **Login Page Collection** — a creative pack of **10 different login page templates**, built with  
@@ -57,8 +65,10 @@ Each form includes **modern 2D & 3D animations**, **hover effects**, and **respo
 ## 🌐 Demo Preview
 
 🎬 **Preview Instructions:**  
-Open the `index.html` file in your browser and scroll through each of the **10 login forms**.  
-Each section is clearly labeled as **Login Form 1**, **Login Form 2**, … **Login Form 10**.
+Open the `index.html` file in your browser or view it live here:  
+👉 **[🔗 View Live Project](https://dishajaysingpur2949-coder.github.io/LOGIN-PAGES/)**  
+
+Each design is labeled as **Login Form 1**, **Login Form 2**, … **Login Form 10**.
 
 📱 All designs are **fully responsive** and **mobile friendly**.
 
